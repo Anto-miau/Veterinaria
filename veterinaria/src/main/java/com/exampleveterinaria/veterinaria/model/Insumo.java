@@ -1,0 +1,37 @@
+package com.exampleveterinaria.veterinaria.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "insumo")
+public class Insumo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotBlank(message = "El nombre es obligatorio")
+    @Size(min = 3, max = 100, message = "El nombre debe tener entre 3 y 100 caracteres")
+    @Column(nullable = false, length = 100)
+    private String nombre;
+
+    @NotBlank(message = "La descripción es obligatoria")
+    @Size(min = 5, max = 300, message = "La descripción debe tener entre 5 y 300 caracteres")
+    @Column(nullable = false, length = 300)
+    private String descripcion;
+
+    @Column(nullable = false)
+    private Integer stock;
+}
