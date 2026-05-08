@@ -1,10 +1,15 @@
 /*package com.exampleveterinaria.veterinaria.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.exampleveterinaria.veterinaria.DTO.ContactoDTO;
 import com.exampleveterinaria.veterinaria.model.Contacto;
 import com.exampleveterinaria.veterinaria.repository.ContactoRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
@@ -31,8 +36,11 @@ public class ContactoService {
 
     public Contacto actualizarContactos(Integer id, Contacto contacto){
         Contacto cont = contactoRepository.findById(id).orElseThrow(() -> new RuntimeException("¡Contacto no existe en los registros!"));
-        if(contacto.getAtributo1() != null){
-            cont.setAtributo1(contacto.getAtributo1());
+        if(contacto.getNombre() != null){
+            cont.setNombre(contacto.getNombre());
+        }
+        if(contacto.getTelefono() != null){
+            cont.setTelefono(contacto.getTelefono());
         }
         return contactoRepository.save(cont);
     }

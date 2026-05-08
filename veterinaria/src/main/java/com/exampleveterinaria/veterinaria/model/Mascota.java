@@ -1,5 +1,6 @@
 package com.exampleveterinaria.veterinaria.model;
 
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -34,13 +36,18 @@ public class Mascota {
     private String nombre;
 
     @NotBlank(message = "El color es obligatorio")
+    @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 100 caracteres")
     @Column(nullable = false, length = 50)
     private String color;
 
-    @Column(nullable = false)
+    @Min(value = 0)
+    @Column(nullable = false)  //validar edad o que fuese autoincrementable?
     private Integer edad;
 
-    @NotBlank(message = "El sexo es obligatorio")
+    @Column(nullable = true)
+    private Date fechaNacimiento;
+
+    @NotBlank(message = "El sexo es obligatorio") //validar formato
     @Column(nullable = false, length = 10)
     private String sexo;
 

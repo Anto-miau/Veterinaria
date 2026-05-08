@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,11 +37,13 @@ public class Tratamiento {
     @Column(nullable = false, length = 300)
     private String descripcion;
 
+    @NotNull(message = "La fecha no puede estar vacia")
     @Column(nullable = false)
     private Date fechaInicio;
 
+    @NotNull(message = "la fecha no puede estar vacia")
     @Column(nullable = false)
-    private Date fechaTermino;
+    private Date fechaTermino; //colocar etapas?
 
     //tablas intermedias----------------------
     @OneToMany(mappedBy = "tratamiento")

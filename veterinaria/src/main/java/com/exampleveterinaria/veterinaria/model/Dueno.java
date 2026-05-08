@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -34,18 +35,19 @@ public class Dueno {
     private String nombre;
 
     @NotBlank(message = "El rut es obligatorio")
-    @Column(nullable = false, unique = true, length = 12)
+    @Column(nullable = false, unique = true, length = 12) //validar formato- listo
     private String rut;
 
-    @NotBlank(message = "El teléfono es obligatorio")
+    @NotBlank(message = "El teléfono es obligatorio") //validar formato - listo
     @Column(nullable = false, length = 15)
     private String telefono;
 
     @NotBlank(message = "El correo es obligatorio")
+    @Email(message = "el correo no es valido") //validar formato - tengo la idea
     @Column(nullable = false, length = 100)
     private String correo;
 
-    @NotBlank(message = "La dirección es obligatoria")
+    @NotBlank(message = "La dirección es obligatoria") //validar formato - tengo la idea
     @Column(nullable = false, length = 200)
     private String direccion;
 

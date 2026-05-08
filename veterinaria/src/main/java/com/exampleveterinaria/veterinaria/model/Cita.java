@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,10 +34,11 @@ public class Cita {
     @Column(nullable = false, length = 300)
     private String motivo;
 
+    @NotNull(message = "La fecha y hora no pueden estar vacias")
     @Column(nullable = false)
-    private LocalDateTime fechaHora;
+    private LocalDateTime fechaHora; //validar formato, validar fecha futura o pasada. (modelo/service)
 
-    @NotBlank(message = "El estado es obligatorio")
+    @NotBlank(message = "El estado es obligatorio") //validar formato o palabras (service)
     @Column(nullable = false, length = 20)
     private String estado;
 

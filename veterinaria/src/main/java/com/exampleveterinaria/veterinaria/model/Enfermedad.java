@@ -30,8 +30,9 @@ public class Enfermedad {
     @Column(nullable = false, length = 100)
     private String nombre;
 
+    @NotBlank(message = "La descripcion es obligatoria")
     @Size(max = 300, message = "La descripción no puede superar 300 caracteres")
-    @Column(length = 300)
+    @Column(nullable = false, length = 300)
     private String descripcion;
 
     @OneToMany(mappedBy = "enfermedad")

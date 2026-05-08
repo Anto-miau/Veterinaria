@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,8 @@ public class Insumo {
     @Column(nullable = false, length = 300)
     private String descripcion;
 
+    @NotBlank(message = "El stock es obligaotrio")
+    @Min(value = 0, message = "el valor minimo es 0") //como hago que se actualice automatico? osea validar el stock
     @Column(nullable = false)
     private Integer stock;
 

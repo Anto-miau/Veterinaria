@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -30,11 +31,12 @@ public class Contacto {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    @NotBlank(message = "El teléfono es obligatorio")
+    @NotBlank(message = "El teléfono es obligatorio") // validar formato
     @Column(nullable = false, length = 15)
     private String telefono;
 
     @NotBlank(message = "El correo es obligatorio")
+    @Email(message = "El correo es invalido") //validar formato
     @Column(nullable = false, length = 100)
     private String correo;
 

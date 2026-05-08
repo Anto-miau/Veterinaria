@@ -70,4 +70,12 @@ public class CitaService {
     }
 
     //validaciones----------------------------------
+    public boolean estadoValido(String estado){     //se puede automatizar?
+        return estado != null && 
+        (estado.equals("Pendiete") ||
+        estado.equals("Ejecutandose") ||
+        estado.equals("finalizada") ||
+        estado.equals("Reagendada") ||
+        estado.equals("cancelada"));
+    }
 }
