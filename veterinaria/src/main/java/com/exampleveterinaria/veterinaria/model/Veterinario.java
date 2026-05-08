@@ -1,10 +1,13 @@
 package com.exampleveterinaria.veterinaria.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -38,4 +41,11 @@ public class Veterinario {
     @NotBlank(message = "El correo es obligatorio")
     @Column(nullable = false, length = 100)
     private String correo;
+
+    //tablas intermedias-------------------
+    @OneToMany(mappedBy = "veterinario")
+    private List<Especialidades> especialidades;
+
+    @OneToMany(mappedBy = "veterinario")
+    private List<Veterinarios> citas;
 }

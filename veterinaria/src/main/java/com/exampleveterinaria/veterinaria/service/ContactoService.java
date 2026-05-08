@@ -1,4 +1,4 @@
-package com.exampleveterinaria.veterinaria.service;
+/*package com.exampleveterinaria.veterinaria.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -6,6 +6,8 @@ import com.exampleveterinaria.veterinaria.DTO.ContactoDTO;
 import com.exampleveterinaria.veterinaria.model.Contacto;
 import com.exampleveterinaria.veterinaria.repository.ContactoRepository;
 
+@Service
+@Transactional
 public class ContactoService {
     @Autowired
     private ContactoRepository contactoRepository;
@@ -57,4 +59,4 @@ public class ContactoService {
     }
 
     //validaciones-----------------------------------
-}
+}*/

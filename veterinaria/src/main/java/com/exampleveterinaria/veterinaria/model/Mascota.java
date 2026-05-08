@@ -44,6 +44,7 @@ public class Mascota {
     @Column(nullable = false, length = 10)
     private String sexo;
 
+    //relaciones------------------------------------------
     @ManyToOne
     @JoinColumn(name = "dueno_id", nullable = false)
     private Dueno dueno;
@@ -52,7 +53,14 @@ public class Mascota {
     @JoinColumn(name = "raza_id", nullable = false)
     private Raza raza;
 
-//tablas intermedias----------------------------------
+    @OneToMany(mappedBy = "mascota")
+    private List<Cita> citas;
+
+    //tablas intermedias----------------------------------
     @OneToMany(mappedBy = "mascota")
     private List<Contactos> contactos;
+
+    @OneToMany(mappedBy = "mascota")
+    private List<Enfermedades> enfermedades;
+
 }

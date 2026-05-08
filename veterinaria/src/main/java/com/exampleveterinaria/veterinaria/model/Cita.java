@@ -40,6 +40,7 @@ public class Cita {
     @Column(nullable = false, length = 20)
     private String estado;
 
+    //relaciones---------------------------------------
     @ManyToOne
     @JoinColumn(name = "mascota_id", nullable = false)
     private Mascota mascota;
@@ -47,4 +48,12 @@ public class Cita {
     //tabla intermedia---------------------
     @OneToMany(mappedBy = "cita")
     private List<Pagos> pagos;
+
+    @OneToMany(mappedBy = "cita")
+    private List<Tratamientos> tratamientos;
+
+    @OneToMany(mappedBy = "cita")
+    private List<Veterinarios> veterinarios;
+
+
 }

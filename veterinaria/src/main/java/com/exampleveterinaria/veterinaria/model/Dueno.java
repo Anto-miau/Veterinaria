@@ -1,5 +1,7 @@
 package com.exampleveterinaria.veterinaria.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -46,7 +49,11 @@ public class Dueno {
     @Column(nullable = false, length = 200)
     private String direccion;
 
+    //relaciones------------------------------------------
     @ManyToOne
     @JoinColumn(name = "comuna_id", nullable = false)
     private Comuna comuna;
+
+    @OneToMany(mappedBy = "dueno")
+    private List<Mascota> mascotas;
 }

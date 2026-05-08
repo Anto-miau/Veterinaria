@@ -1,4 +1,6 @@
-package com.exampleveterinaria.veterinaria.service;
+/*package com.exampleveterinaria.veterinaria.service;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,4 +57,4 @@ public class PagoService {
     }
 
     //validaciones-----------------------------------
-}
+}*/

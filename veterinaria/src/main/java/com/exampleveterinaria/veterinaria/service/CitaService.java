@@ -22,7 +22,7 @@ public class CitaService {
         return citaRepository.findAll().stream().map(this::convertirADTO).toList();
     }
 
-    public Cita buscarPorId(Integer id) {
+    public CitaDTO buscarPorId(Integer id) {
         Cita cita = citaRepository.findById(id).orElseThrow(() -> new RuntimeException("¡Cita no encontrada!"));
         return convertirADTO(cita);
     }
@@ -50,7 +50,7 @@ public class CitaService {
             Cita cita = citaRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("¡Imposible eliminar! cita con ID " + id + " no existe."));
             citaRepository.delete(cita);
-            return "La cita '" + id + "' ha sido eliminada exitosamente.";
+            return "La cita '" + cita.getId() + "' ha sido eliminada exitosamente.";
         } catch (RuntimeException e) {
             return e.getMessage();
         }

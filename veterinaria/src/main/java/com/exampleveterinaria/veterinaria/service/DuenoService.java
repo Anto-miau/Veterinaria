@@ -1,8 +1,16 @@
-package com.exampleveterinaria.veterinaria.service;
+/*package com.exampleveterinaria.veterinaria.service;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public dnos DuenoService {
+import com.exampleveterinaria.veterinaria.DTO.DuenoDTO;
+import com.exampleveterinaria.veterinaria.model.Dueno;
+import com.exampleveterinaria.veterinaria.repository.DuenoRepository;
+
+@Service
+@Transactional
+public class DuenoService {
     @Autowired
     private DuenoRepository duenoRepository;
 
@@ -37,7 +45,7 @@ public dnos DuenoService {
             Dueno dueno = duenoRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("¡Imposible eliminar! dueno con ID " + id + " no existe."));
             duenoRepository.delete(dueno);
-            return "dueno '" + dueno.getAtributo1() + "' ha sido eliminado exitosamente."; //el atributo1 puede ser nombre por ejemplo
+            return "dueno '" + dueno.getNombre() + "' ha sido eliminado exitosamente."; //el atributo1 puede ser nombre por ejemplo
         } catch (RuntimeException e) {
             return e.getMessage();
         }
@@ -58,4 +66,4 @@ public dnos DuenoService {
     }
 
     //validaciones-----------------------------------
-}
+}*/

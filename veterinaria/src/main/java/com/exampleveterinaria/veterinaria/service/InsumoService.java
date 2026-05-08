@@ -1,4 +1,4 @@
-package com.exampleveterinaria.veterinaria.service;
+/*package com.exampleveterinaria.veterinaria.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -57,4 +57,4 @@ public class InsumoService {
     }
 
     //validaciones-----------------------------------
-}
+}*/
